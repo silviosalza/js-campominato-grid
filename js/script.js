@@ -23,20 +23,15 @@ let numbersOfSquares = 100
 const grid = document.querySelector(".grid")
 let numbersArray = getNumberArray(numbersOfSquares)
 const play = document.querySelector(".btnPlay")
-const tryAgain = document.querySelector(".btnTryAgain")
-const gridItem = document.querySelector(".grid-item")
 
-tryAgain.addEventListener("click" , function(){
-    gridItem.remove()
 
-})
 
 
 play.addEventListener("click" , function(){
-
+    
+    grid.innerHTML = ""
     for (let i = 0; i < numbersArray.length ; i++){
 
-        
         const currentNumber = numbersArray[i]
     
         const newItem = generateGridItem(currentNumber)
