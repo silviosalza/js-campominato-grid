@@ -8,3 +8,57 @@
 // - con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
 // - con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 // - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
+
+
+// step 1 creo una griglia 10x10 al cliccare del bottone play. Ogni casella avrà un numero da 1 a 100, non random ma consecutivi
+
+
+//dichiarazioni:
+
+const numbersOfSquares = 100
+
+
+//genero casella per ogni numero generato
+
+const grid = document.querySelector(".grid")
+const numbersArray = getNumberArray(numbersOfSquares)
+
+for (let i = 0; i < numbersArray.length ; i++){
+    const currentNumber = numbersArray[i]
+
+    const newItem = generateGridItem(currentNumber)
+    grid.append(newItem)
+
+
+
+}
+
+
+
+//! Funzioni
+
+// genero un array di un numbersQuantity di numeri, consecutivi.
+function getNumberArray(numbersQuantity) {
+    const array = [];
+    
+    for (let i = 1; i<=numbersQuantity; i++){
+        const number = i
+        array.push(number)
+        
+    }
+    return array   
+}
+
+function generateGridItem(text) {
+    const newSquare = document.createElement("div");
+    newSquare.classList.add("grid-item");
+    newSquare.innerHTML = `<span>${text}</span>`;
+    return newSquare;
+}
+
+
+
+
+
+
+
