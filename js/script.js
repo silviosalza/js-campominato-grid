@@ -29,16 +29,23 @@ play.addEventListener("click" , function(){
     let numberOfSquare = parseInt(difficult.options[difficult.selectedIndex].value);
     console.log(numberOfSquare);
     let numbersArray = getNumberArray(numberOfSquare)
-    
+
     grid.innerHTML = ""
     for (let i = 0; i < numbersArray.length ; i++){
 
 
         const currentNumber = numbersArray[i]
-    
         const newItem = generateGridItem(currentNumber)
         grid.append(newItem)
         newItem.addEventListener("click", handleItemClick)
+
+        if (numberOfSquare === 81){
+            newItem.classList.remove("easy")
+            newItem.classList.add("normal")
+        } else if (numberOfSquare === 49){
+            newItem.classList.remove("easy")
+            newItem.classList.add("hard")
+        }
         
     }
 })
@@ -62,7 +69,7 @@ function getNumberArray(numbersQuantity) {
 
 function generateGridItem(text) {
     const newSquare = document.createElement("div");
-    newSquare.classList.add("grid-item");
+    newSquare.classList.add("grid-item" , "easy");
     newSquare.innerHTML = `<span>${text}</span>`;
     return newSquare;
 }
