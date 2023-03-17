@@ -15,21 +15,37 @@
 
 //dichiarazioni:
 
-const numbersOfSquares = 100
+let numbersOfSquares = 100
 
 
 //genero casella per ogni numero generato
 
 const grid = document.querySelector(".grid")
-const numbersArray = getNumberArray(numbersOfSquares)
+let numbersArray = getNumberArray(numbersOfSquares)
+const play = document.querySelector(".btnPlay")
+const tryAgain = document.querySelector(".btnTryAgain")
+const gridItem = document.querySelector(".grid-item")
 
-for (let i = 0; i < numbersArray.length ; i++){
-    const currentNumber = numbersArray[i]
+tryAgain.addEventListener("click" , function(){
+    gridItem.remove()
 
-    const newItem = generateGridItem(currentNumber)
-    newItem.addEventListener("click", handleItemClick)
-    grid.append(newItem)
-}
+})
+
+
+play.addEventListener("click" , function(){
+
+    for (let i = 0; i < numbersArray.length ; i++){
+
+        
+        const currentNumber = numbersArray[i]
+    
+        const newItem = generateGridItem(currentNumber)
+        grid.append(newItem)
+        newItem.addEventListener("click", handleItemClick)
+        
+    }
+})
+
 
 
 
@@ -58,8 +74,8 @@ function handleItemClick() {
 
     //lego il testo dentro il pag span e lo affido alla costante clickednumber
     const clickedNumber = parseInt(this.querySelector("span").textContent);
-    this.classList.toggle("orange");
-    console.log(clickedNumber);
+    this.classList.add("orange");
+    console.log(`Hai scelto il numero ${clickedNumber}`);
 }
 
 
