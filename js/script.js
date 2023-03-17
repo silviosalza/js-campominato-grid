@@ -15,22 +15,24 @@
 
 //dichiarazioni:
 
-let numbersOfSquares = 100
-
 
 //genero casella per ogni numero generato
 
 const grid = document.querySelector(".grid")
-let numbersArray = getNumberArray(numbersOfSquares)
 const play = document.querySelector(".btnPlay")
-
-
 
 
 play.addEventListener("click" , function(){
     
+    let difficult = document.querySelector(".select")
+    console.log(difficult);
+    let numberOfSquare = parseInt(difficult.options[difficult.selectedIndex].value);
+    console.log(numberOfSquare);
+    let numbersArray = getNumberArray(numberOfSquare)
+    
     grid.innerHTML = ""
     for (let i = 0; i < numbersArray.length ; i++){
+
 
         const currentNumber = numbersArray[i]
     

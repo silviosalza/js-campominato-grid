@@ -30,7 +30,8 @@ img{
     align-items: center;
     padding: 0 2rem;
 }
-button{
+button,
+select{
     padding: 0.5rem 3rem;
     border-radius: 10px;
     font-size: 1.5rem;
