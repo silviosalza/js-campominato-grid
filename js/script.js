@@ -27,10 +27,8 @@ for (let i = 0; i < numbersArray.length ; i++){
     const currentNumber = numbersArray[i]
 
     const newItem = generateGridItem(currentNumber)
+    newItem.addEventListener("click", handleItemClick)
     grid.append(newItem)
-
-
-
 }
 
 
@@ -54,6 +52,14 @@ function generateGridItem(text) {
     newSquare.classList.add("grid-item");
     newSquare.innerHTML = `<span>${text}</span>`;
     return newSquare;
+}
+
+function handleItemClick() {
+
+    //lego il testo dentro il pag span e lo affido alla costante clickednumber
+    const clickedNumber = parseInt(this.querySelector("span").textContent);
+    this.classList.toggle("orange");
+    console.log(clickedNumber);
 }
 
 
